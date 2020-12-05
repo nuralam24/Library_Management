@@ -1,0 +1,379 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Library Management API Documentation",
+        "description": "Node.js Assignment by SoftX",
+        "contact": {
+            "name": "Nur Alam",
+            "url": "https://www.linkedin.com/in/nuralam024",
+            "email": "nuralamcse024@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8888",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API for users"
+        },
+        {
+            "name": "Library",
+            "description": "API for book"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "jwt": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization"
+        }
+    },
+    "security": [
+        {
+            "jwt": []
+        }
+    ],
+    "paths": {
+        "/api/user/signup": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Registration a new user",
+                "description": "Registration a new user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that we want to create",
+                        "schema": {
+                            "$ref": "#/definitions/SignUP"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New user is created",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/signin": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login a user",
+                "description": "Login a user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that we want to create",
+                        "schema": {
+                            "$ref": "#/definitions/SingIN"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New user is created",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/library/all-books": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Register student get all books",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/LibraryADD"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/library/single-book/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Register student get a single books by object ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "By Object ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/LibraryADD"
+                        }
+                    }
+                }
+            }
+        },
+
+
+
+
+
+        "/api/library/add-book": {
+            "post": {
+                "tags": [
+                    "Library"
+                ],
+                "summary": "Added a new book",
+                "description": "Added a new book",
+                "parameters": [
+                    {
+                        "name": "library",
+                        "in": "body",
+                        "description": "Added a new book",
+                        "schema": {
+                            "$ref": "#/definitions/LibraryADD"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New book is created",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/library/update-book/{id}": {
+            "put": {
+                "tags": [
+                    "Library"
+                ],
+                "summary": "Update the book",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "By Object ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "library",
+                        "in": "body",
+                        "description": "updates the book",
+                        "schema": {
+                            "$ref": "#/definitions/LibraryADD"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/library/activate-books/{id}": {
+            "put": {
+                "tags": [
+                    "Library"
+                ],
+                "summary": "Update book status for activate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "By Object ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/library/deactivate-books/{id}": {
+            "put": {
+                "tags": [
+                    "Library"
+                ],
+                "summary": "Update book status for deactivate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "By Object ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/library/delete-book/{id}": {
+            "delete": {
+                "tags": [
+                    "Library"
+                ],
+                "summary": "Delete the book ",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the book",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+
+
+    
+    "definitions": {
+        "SignUP": {
+            "required": [
+                "userType",
+                "name",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "userType": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                }, 
+                "name": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                },
+                "email": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                  },
+                "password": {
+                    "type": "string",
+                    "minLength": 5
+                }
+            }
+        },
+        "SingIN": {
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                  },
+                "password": {
+                    "type": "string",
+                    "minLength": 5
+                }
+            }
+        },
+        "LibraryADD": {
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "bookName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                  },
+                  "author": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                  },
+                  "genre": {
+                    "type": "string"
+                  },
+                  "releaseDate": {
+                    "type": "string",
+                    "default": "2020-12-05T09:44:50.543Z"
+                  },
+                  "bookImage": {
+                    "type": "string"
+                  },
+                  "isActivate": {
+                    "type": "boolean",
+                    "default": true
+                  }
+            }
+        }
+    }
+}
