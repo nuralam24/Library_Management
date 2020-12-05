@@ -1,2 +1,2 @@
-const DB = "mongodb+srv://<username>:<password>@cluster0.ck3hh.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const DB = "mongodb+srv://nuralam2020@cluster0.ck3hh.mongodb.net/<dbname>?retryWrites=true&w=majority";
 module.exports = DB;
