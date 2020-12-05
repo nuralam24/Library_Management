@@ -6,5 +6,5 @@
 
 1. Install dependencies: npm install
 2. Start application: node server
-3. Base URL: `http://localhost:8888`
-4. Swagger ULR: http://localhost:8888/api-docs
+3. Base URL:  http://localhost:8888
+4. Swagger ULR:  http://localhost:8888/api-docs
