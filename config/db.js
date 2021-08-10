@@ -1,2 +1,2 @@
-const DB = "mongodb://localhost:27017/softxDB";
+const DB = "mongodb://localhost:27017/Lib_DB";
 module.exports = DB;
